@@ -36,3 +36,14 @@ lower wick (>= 40% of its range) -> buy. Bearish: the mirror image -> sell.
 Base rate (any candle, up after 3 candles) is ~51%, so the pattern is close to a
 coin flip. Stricter versions (wick >= 60%, bigger first candle) look better on
 15-min but have only 20-80 trades and are not consistent across years.
+
+# Strategy comparison (`strategies.py`), net of 1.5 pts cost per trade
+
+| Strategy | 2017-22 PF | 2023-26 PF | All: trades / net avg pts |
+|---|---|---|---|
+| Big candle follow, 3x, 5-min (no filter) | 1.46 | 1.34 | 381 / +4.5 |
+| Big candle follow, 3x, 5-min + day-trend filter | 1.37 | 0.82 | 148 / +0.5 |
+| ORB 15-min, SL = OR mid, 1.5R | 0.94 | 0.89 | 2173 / -2.0 |
+| Trend day (>= 0.4% by 10:15, hold to 15:15) | 1.19 | 0.95 | 603 / +3.5 |
+
+Only the plain 3x 5-min big-candle follow held up in both periods.
